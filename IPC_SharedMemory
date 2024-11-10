@@ -56,6 +56,10 @@ d->flag=-1;
 shmdt(d);
 shmctl(shmid,IPC_RMID,NULL);
 }
+
+
+
+
 /*student@student:~$ gcc -o server server.c
 student@student:~$ gcc -o client client.c
 student@student:~$ ./server
