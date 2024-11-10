@@ -1,0 +1,53 @@
+#!/bin/bash
+while true
+do
+echo "Enter your choice:1)Insert 2) Display3)Search4)delete5)modify"
+read ch
+case $ch in
+1)
+    echo -e "\nEnter Employee name"
+    read ename
+    echo -e "\nEnter Employee no"
+    read eno
+    echo -e "\nEnter Employee city"
+    read ecity
+    echo -e "\nEnter Employee salary"
+    read esalary
+    echo -e "$ename\t$eno\t$ecity\t$esalary">>emp.txt
+    ;;
+ 2) 
+   
+    cat emp.txt
+    ;;
+ 3)
+    echo -e "search record:ename"
+    read ename
+    grep $ename emp.txt
+    
+    ;;
+  4)
+     echo -e "\nEnter name to delete record"
+     read ename
+     grep -v $ename emp.txt >>temp.txt
+     rm emp.txt
+     mv temp.txt emp.txt
+     ;;
+     
+ 5)
+  echo -e "\nEnter name to modify record for"
+  read ename
+
+  echo "\nEnter new Record"
+  read myname
+  sed -i s/$ename/$myname/g emp.txt
+  ;;
+  6)
+  exit
+  ;;
+  esac
+  done
+    
+    
+
+    
+   
